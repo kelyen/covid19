@@ -1,6 +1,6 @@
 import pandas as pd
 import urllib.request
-import matplotlib.pyplot as ml
+
 
 # import csv from web
 data = urllib.request.urlopen("https://www.data.gouv.fr/fr/datasets/r/0b66ca39-1623-4d9c-83ad-5434b7f9e2a4")
@@ -27,6 +27,4 @@ tDFr = tD[tD.maille_code == 'FRA']
 #  tDFr = tDFr.reindex(tDFr.deces.astype(float).index)
 tDFr = tDFr.astype({'deces': 'int32'})
 
-ml.plot(tDFr)
-print(tDFr.dtypes)
-print(tDFr)
+tDFr.to_csv('extract.csv')
